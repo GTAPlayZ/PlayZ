@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="./views/vips/style.css">
+<div class="content-page">
+    <div class="content-page-titulo jumbotron">
+        <h1>Vip's</h1>      
+    </div>
+    <ul id="lista-vips">
+    </ul>
+</div>
+<img src="./assets/images/vip.png" alt="" class="content-page-image image-destaque" />
+
+<script>
+
+    $(document).ready(function() {
+
+        let dadosFake = [
+            {
+                id: 1,
+                nome: 'bronze',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            },
+            {
+                id: 1,
+                nome: 'prata',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            },
+            {
+                id: 1,
+                nome: 'ouro',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            }
+        ]
+
+        $("#lista-vips").html(
+            dadosFake.map((vip, count) => {
+                return `<li data-key="${vip.id}" class="${count == 1 ? 'small' : ''}">
+                    <p>${vip.nome}</p>
+                    ${
+                        vip.detalhes.split('</br>').map((b)=> {
+                            return `<div>${b}</div>`;
+                        }).join('')
+                    }
+                </li>`
+            }).join('')
+        )
+
+    });
+</script>
