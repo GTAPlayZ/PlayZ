@@ -12,21 +12,36 @@
 
     $(document).ready(function() {
 
-        requestServer({}, hostServer + '/vip', 'GET', function (err, res) {
+        let dadosFake = [
+            {
+                id: 1,
+                nome: 'bronze',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            },
+            {
+                id: 1,
+                nome: 'prata',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            },
+            {
+                id: 1,
+                nome: 'ouro',
+                detalhes: 'Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>Loren</br>',
+            }
+        ]
 
-            $("#lista-vips").html(
-                res.map((vip, count) => {
-                    return `<li data-key="${vip.id}" class="${count == 1 ? 'small' : ''}">
-                        <p>${vip.name}</p>
-                        ${
-                            vip.descricao.split('</br>').map((b)=> {
-                                return `<div>${b}</div>`;
-                            }).join('')
-                        }
-                    </li>`
-                }).join('')
-            )
-        });
+        $("#lista-vips").html(
+            dadosFake.map((vip, count) => {
+                return `<li data-key="${vip.id}" class="${count == 1 ? 'small' : ''}">
+                    <p>${vip.nome}</p>
+                    ${
+                        vip.detalhes.split('</br>').map((b)=> {
+                            return `<div>${b}</div>`;
+                        }).join('')
+                    }
+                </li>`
+            }).join('')
+        )
 
     });
 </script>
